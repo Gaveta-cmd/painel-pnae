@@ -6,6 +6,8 @@ import { ProtectedRoute } from './components/ProtectedRoute'
 import { DashboardLayout } from './layouts/DashboardLayout'
 import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
+import { Escolas } from './pages/Escolas'
+import { Alunos } from './pages/Alunos'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -36,6 +38,8 @@ function AppRoutes() {
       >
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="escolas" element={<Escolas />} />
+        <Route path="alunos" element={<Alunos />} />
       </Route>
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
