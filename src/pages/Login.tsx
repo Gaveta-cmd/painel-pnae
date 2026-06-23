@@ -48,72 +48,72 @@ export function Login() {
         className="relative w-full max-w-md mx-4"
       >
         {/* Glass card */}
-        <div className="glass-effect bg-white/15 border border-white/25 rounded-3xl p-8 shadow-2xl">
+        <div className="relative rounded-3xl p-8 shadow-2xl" style={{ backgroundColor: '#ffffff', border: '1px solid #e4e4e7', zIndex: 10 }}>
           {/* Logo */}
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 bg-white/20 border border-white/30 rounded-2xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-emerald-600 border border-emerald-500 rounded-2xl flex items-center justify-center">
               <Utensils className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white leading-tight">PNAE</h1>
-              <p className="text-white/70 text-sm">Alimentação Escolar</p>
+              <h1 className="text-xl font-bold text-emerald-800 leading-tight">PNAE</h1>
+              <p className="text-emerald-600 text-sm">Alimentação Escolar</p>
             </div>
           </div>
 
-          <h2 className="text-2xl font-bold text-white mb-1">Bem-vindo de volta</h2>
-          <p className="text-white/70 text-sm mb-7">Faça login para acessar o painel</p>
+          <h2 className="text-2xl font-bold text-zinc-800 mb-1">Bem-vindo de volta</h2>
+          <p className="text-zinc-500 text-sm mb-7">Faça login para acessar o painel</p>
 
           {/* Error */}
           {error && (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="flex items-center gap-2 bg-red-500/20 border border-red-400/30 rounded-xl px-4 py-3 mb-5"
+              className="flex items-center gap-2 rounded-xl px-4 py-3 mb-5" style={{ backgroundColor: '#fef2f2', border: '1px solid #fecaca' }}
             >
-              <AlertCircle className="w-4 h-4 text-red-200 flex-shrink-0" />
-              <p className="text-red-100 text-sm">{error}</p>
+              <AlertCircle className="w-4 h-4 flex-shrink-0" style={{ color: '#dc2626' }} />
+              <p className="text-sm" style={{ color: '#991b1b' }}>{error}</p>
             </motion.div>
           )}
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {/* Email */}
             <div>
-              <label className="block text-white/80 text-sm font-medium mb-1.5">Email</label>
+              <label className="block text-zinc-700 text-sm font-medium mb-1.5">E-mail</label>
               <div className="relative">
-                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
                 <input
                   {...register('email')}
                   type="email"
                   placeholder="admin@pnae.gov.br"
-                  className="w-full bg-white/15 border border-white/25 text-white placeholder-white/40 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none focus:border-white/60 focus:bg-white/20 transition-all"
+                  className="w-full rounded-xl pl-10 pr-4 py-3 text-sm transition-all outline-none" style={{ backgroundColor: '#f4f4f5', border: '1px solid #e4e4e7', color: '#27272a' }}
                 />
               </div>
               {errors.email && (
-                <p className="text-red-200 text-xs mt-1">{errors.email.message}</p>
+                <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
               )}
             </div>
 
             {/* Senha */}
             <div>
-              <label className="block text-white/80 text-sm font-medium mb-1.5">Senha</label>
+              <label className="block text-zinc-700 text-sm font-medium mb-1.5">Senha</label>
               <div className="relative">
-                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
+                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
                 <input
                   {...register('senha')}
                   type={showPassword ? 'text' : 'password'}
                   placeholder="••••••••"
-                  className="w-full bg-white/15 border border-white/25 text-white placeholder-white/40 rounded-xl pl-10 pr-10 py-3 text-sm focus:outline-none focus:border-white/60 focus:bg-white/20 transition-all"
+                  className="w-full rounded-xl pl-10 pr-10 py-3 text-sm transition-all outline-none" style={{ backgroundColor: '#f4f4f5', border: '1px solid #e4e4e7', color: '#27272a' }}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/50 hover:text-white/80 transition-colors"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
               {errors.senha && (
-                <p className="text-red-200 text-xs mt-1">{errors.senha.message}</p>
+                <p className="text-red-500 text-xs mt-1">{errors.senha.message}</p>
               )}
             </div>
 
@@ -121,11 +121,11 @@ export function Login() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-white text-emerald-700 font-semibold rounded-xl py-3 text-sm hover:bg-white/90 transition-all beautiful-shadow disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
+              className="w-full font-semibold rounded-xl py-3 text-sm transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2" style={{ backgroundColor: '#059669', color: '#fff', boxShadow: '0 10px 15px -3px rgba(5,150,105,0.25)' }}
             >
               {isLoading ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-emerald-600/30 border-t-emerald-600 rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   Entrando...
                 </>
               ) : (
