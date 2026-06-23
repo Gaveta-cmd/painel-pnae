@@ -8,6 +8,9 @@ import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
 import { Escolas } from './pages/Escolas'
 import { Alunos } from './pages/Alunos'
+import { Alimentos } from './pages/Alimentos'
+import { Cardapios } from './pages/Cardapios'
+import { CardapioDetalhe } from './pages/CardapioDetalhe'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -40,6 +43,9 @@ function AppRoutes() {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="escolas" element={<Escolas />} />
         <Route path="alunos" element={<Alunos />} />
+        <Route path="alimentos" element={<Alimentos />} />
+        <Route path="cardapios" element={<Cardapios />} />
+        <Route path="cardapios/:id" element={<CardapioDetalhe />} />
       </Route>
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
