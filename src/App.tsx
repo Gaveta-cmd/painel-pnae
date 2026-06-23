@@ -11,6 +11,9 @@ import { Alunos } from './pages/Alunos'
 import { Alimentos } from './pages/Alimentos'
 import { Cardapios } from './pages/Cardapios'
 import { CardapioDetalhe } from './pages/CardapioDetalhe'
+import { Estoque } from './pages/Estoque'
+import { Fornecedores } from './pages/Fornecedores'
+import { Relatorios } from './pages/Relatorios'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -46,6 +49,9 @@ function AppRoutes() {
         <Route path="alimentos" element={<Alimentos />} />
         <Route path="cardapios" element={<Cardapios />} />
         <Route path="cardapios/:id" element={<CardapioDetalhe />} />
+        <Route path="estoque" element={<Estoque />} />
+        <Route path="fornecedores" element={<Fornecedores />} />
+        <Route path="relatorios" element={<Relatorios />} />
       </Route>
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
