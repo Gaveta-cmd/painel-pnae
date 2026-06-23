@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/*
+ * NOTE: não declarar `* { margin:0; padding:0 }` aqui.
+ * No Tailwind v4 as utilitárias ficam em @layer, e regras sem camada
+ * vencem as com camada — um reset universal sem camada anularia todo
+ * p-*/m-*/space-* do app. O Preflight do Tailwind já faz esse reset.
+ */
 
 :root {
   font-family: 'Inter', system-ui, sans-serif;
@@ -44,4 +45,32 @@ body {
 .scroll-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Login: ambient float for background blobs */
+@keyframes float-blob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(1.5deg); }
+}
+.animate-float-blob {
+  animation: float-blob 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Login: subtle emerald grid background */
+.bg-grid-emerald {
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Login: input focus ring (works without Tailwind opacity utilities) */
+.login-input {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.login-input:focus {
+  border-color: #10b981 !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12);
 }
